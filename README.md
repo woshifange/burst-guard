@@ -1,6 +1,6 @@
 # 爆裂攻城 · BURST GUARD
 
-> GitHub: [woshifange/burst-guard](https://github.com/woshifange/burst-guard) · MIT License · 可二次开发
+> GitHub: [woshifange/burst-guard](https://github.com/woshifange/burst-guard) · 🌐 **在线试玩：<https://woshifange.github.io/burst-guard/>** · MIT License · 可二次开发
 
 > 手机横屏的回合制弹射对战游戏：**算风、反向拉弓，把对面小队一个个从可破坏地形上抹掉**。
 > Phaser 3 + TypeScript + Vite；引擎与表现层解耦，全部美术/音效程序化生成，零外部素材文件。
@@ -32,6 +32,8 @@
 | 战斗（纯击杀，2v2 起） | 菜单（升星/解锁/名额） | 训练三条线 |
 |---|---|---|
 | ![battle](docs/screenshots/battle.png) | ![menu](docs/screenshots/menu.png) | ![training](docs/screenshots/training.png) |
+
+> 在线版由 GitHub Pages 自动部署；离线版见 [v3.0.0 Release](https://github.com/woshifange/burst-guard/releases/tag/v3.0.0)。
 
 ## 二次开发
 
