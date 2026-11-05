@@ -1,5 +1,7 @@
 # 爆裂攻城 · BURST GUARD
 
+> GitHub: [woshifange/burst-guard](https://github.com/woshifange/burst-guard) · MIT License · 可二次开发
+
 > 手机横屏的回合制弹射对战游戏：**算风、反向拉弓，把对面小队一个个从可破坏地形上抹掉**。
 > Phaser 3 + TypeScript + Vite；引擎与表现层解耦，全部美术/音效程序化生成，零外部素材文件。
 
@@ -40,7 +42,7 @@
 - 许可：[MIT](LICENSE)；素材/技能来源见 [NOTICE.md](NOTICE.md)
 
 ```bash
-git clone <repo-url> && cd burst-guard
+git clone https://github.com/woshifange/burst-guard.git && cd burst-guard
 npm i
 npm run dev      # 开发
 npm run verify   # 提交前：typecheck + 51 项测试 + build
