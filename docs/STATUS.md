@@ -52,6 +52,14 @@ v3 已把城堡体系整体移除，玩法变成**纯击杀**：4 张地图、7 
 - `npm run verify`：typecheck + vitest + build；dist JS gzip **≈367KB**（预算 ≤1.5MB）。
 - 单文件离线版：`dist-single/burst-guard.html`（及 `-canvas` 兼容版）。
 
+## 4.1 全屏 / PWA
+
+- 新增 `public/manifest.webmanifest`（fullscreen+landscape）、`public/sw.js`、192/512 图标；`main.ts` 注册 SW。
+- 菜单/战斗/设置页均提供全屏入口；Fullscreen API 不可用时 toast 引导「添加到主屏幕」。
+- 小视口（手机浏览器地址栏占高度）下菜单改为整体滚动，英雄卡不再被挤没。
+- 8GB? 无，程序化图标由 headless canvas 生成。
+- 真机全屏效果需用户实测（Chrome 支持 API；内置 WebView 通常只支持 PWA 安装路径）。
+
 ## 5. 已知缺口
 
 - 真机性能/触控手感未实测；DPR=1（高分屏略糊）。

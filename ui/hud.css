@@ -272,7 +272,19 @@ body {
   right: calc(10px + var(--safe-r));
   bottom: calc(8px + var(--safe-b));
   display: flex;
-  gap: 8px;
+  gap: 6px;
+}
+
+@media (max-height: 460px) {
+  .menu-head { gap: 6px; }
+  .brand h1 { font-size: 18px; }
+  .brand p { font-size: 9px; }
+  .res { padding: 3px 8px; }
+  .res b { font-size: 13px; }
+  .tabs button { min-height: 34px; padding: 0 12px; }
+  .menu-foot { padding-top: 2px; }
+  .hero-card, .train-card { min-height: 118px; }
+  .battle .btn.ghost { min-height: 34px; padding: 0 10px; }
 }
 
 .btn {
@@ -335,6 +347,8 @@ body {
   pointer-events: auto;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: calc(8px + var(--safe-t)) calc(12px + var(--safe-r)) calc(8px + var(--safe-b)) calc(12px + var(--safe-l));
   background:
     radial-gradient(120% 90% at 15% 0%, rgba(255, 159, 67, 0.16), transparent 55%),
@@ -432,10 +446,9 @@ body {
 }
 
 .tab-body {
-  flex: 1;
+  flex: 1 0 auto;
   min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
   padding: 4px 2px 2px;
   scrollbar-width: thin;
 }

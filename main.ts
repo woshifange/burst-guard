@@ -40,6 +40,7 @@ class App implements AppContext {
   layout: Layout;
   battleScene: BattleScene | null = null;
   private lastDifficulty: Difficulty = 'normal';
+  private deferredInstall: { prompt: () => Promise<void>; userChoice?: Promise<unknown> } | null = null;
 
   constructor() {
     this.save = new SaveStore();
@@ -88,6 +89,8 @@ class App implements AppContext {
         this.audio.setEnabled(this.save.data.settings.sound);
         this.hud.refreshMenu();
       },
+      onRequestFullscreen: () => this.enterFullscreen(),
+      onInstallApp: () => this.installApp(),
       onSelectHero: (unitId: string) => this.battleScene?.selectUnit(unitId),
       onSkipTurn: () => this.battleScene?.skipTurn(),
       onLeaveBattle: () => this.leaveBattle(),
@@ -100,14 +103,41 @@ class App implements AppContext {
     this.game.events.once(Phaser.Core.Events.READY, () => this.hideBootScreen());
   }
 
+  /** 真全屏：浏览器支持时进入并锁横屏；不支持时提示安装到桌面 */
   requestFullscreen(): void {
+    void this.enterFullscreen();
+  }
+
+  private async enterFullscreen(): Promise<void> {
     const el = document.documentElement as HTMLElement & {
       requestFullscreen?: (opts?: { navigationUI?: string }) => Promise<void>;
     };
-    if (document.fullscreenElement || !el.requestFullscreen) return;
-    el.requestFullscreen({ navigationUI: 'hide' }).catch(() => {
-      /* iOS Safari / 部分 WebView 不支持 */
-    });
+    if (document.fullscreenElement) return;
+    if (!el.requestFullscreen) {
+      this.hud.toast('当前浏览器不支持全屏：请用 Chrome 打开，或「添加到主屏幕」启动');
+      return;
+    }
+    try {
+      await el.requestFullscreen({ navigationUI: 'hide' });
+      const so = screen.orientation as ScreenOrientation & { lock?: (o: string) => Promise<void> };
+      so?.lock?.('landscape').catch(() => undefined);
+    } catch {
+      this.hud.toast('全屏被浏览器拦截：请用 Chrome 打开，或「添加到主屏幕」启动');
+    }
+  }
+
+  private installApp(): void {
+    if (this.deferredInstall) {
+      void this.deferredInstall.prompt();
+      this.deferredInstall = null;
+      return;
+    }
+    const standalone = window.matchMedia?.('(display-mode: standalone)').matches;
+    if (standalone) {
+      this.hud.toast('已从主屏幕启动，已是全屏模式');
+      return;
+    }
+    this.hud.toast('浏览器菜单 →「添加到主屏幕」，之后从桌面图标启动即全屏横屏');
   }
 
   quality(): 'hi' | 'lo' {
@@ -156,6 +186,15 @@ class App implements AppContext {
       render: { antialias: true, roundPixels: false, powerPreference: 'high-performance' },
       fps: { target: 60, min: 30 },
     };
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => undefined);
+      });
+    }
+    window.addEventListener('beforeinstallprompt', (ev) => {
+      ev.preventDefault();
+      this.deferredInstall = ev as unknown as { prompt: () => Promise<void> };
+    });
     this.game = new Phaser.Game(config);
     this.game.scene.add('BootScene', new BootScene(this), true);
     this.game.scene.add('MenuScene', new MenuScene(this));

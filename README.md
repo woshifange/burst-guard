@@ -35,6 +35,14 @@
 
 > 在线版由 GitHub Pages 自动部署；离线版见 [v3.0.0 Release](https://github.com/woshifange/burst-guard/releases/tag/v3.0.0)。
 
+## 全屏 / 安装到桌面（PWA）
+
+- 战斗内与设置页都有「全屏」按钮；浏览器支持 Fullscreen API 时会进入全屏并尝试锁横屏。
+- 部分手机浏览器/内置 WebView 不支持网页全屏：请用 **Chrome** 打开，或浏览器菜单 →「添加到主屏幕」。
+  项目已提供 `manifest.webmanifest`（`display: fullscreen`、`orientation: landscape`）+ service worker + 192/512 图标，
+  从主屏幕图标启动即全屏横屏。
+- iOS Safari：分享 →「添加到主屏幕」，从桌面图标启动。
+
 ## 二次开发
 
 - [开发文档 docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)：架构、数据流、扩展英雄/武器/地图/养成、测试与 QA 流程

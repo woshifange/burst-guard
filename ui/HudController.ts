@@ -35,6 +35,8 @@ export interface HudCallbacks {
   onToggleQuality: () => void;
   onResetProgress: () => void;
   onResetAll: () => void;
+  onRequestFullscreen: () => void;
+  onInstallApp: () => void;
   onSelectHero: (unitId: string) => void;
   onSkipTurn: () => void;
   onLeaveBattle: () => void;
@@ -133,6 +135,9 @@ export class HudController {
         case 'btn-start': this.cb.onStartBattle(this.difficulty); break;
         case 'btn-resume': this.cb.onResumeBattle(); break;
         case 'btn-skip': this.cb.onSkipTurn(); break;
+        case 'btn-fullscreen': this.cb.onRequestFullscreen(); break;
+        case 'btn-fullscreen-setting': this.cb.onRequestFullscreen(); break;
+        case 'btn-install': this.cb.onInstallApp(); break;
         case 'btn-leave': this.cb.onLeaveBattle(); break;
         case 'btn-next': this.cb.onResultNext(); break;
         case 'btn-back-menu': this.cb.onResultMenu(); break;
@@ -319,6 +324,8 @@ export class HudController {
     const d = this.save.data;
     this.el('tab-settings').innerHTML = `
       <div class="settings-panel">
+        <div class="setting-row"><div>全屏模式<small>浏览器不支持时，用「添加到主屏幕」启动</small></div><button id="btn-fullscreen-setting" class="toggle">全屏</button></div>
+        <div class="setting-row"><div>安装到桌面<small>从主屏幕启动 = 真全屏横屏（PWA）</small></div><button id="btn-install" class="toggle">安装</button></div>
         <div class="setting-row"><div>音效<small>WebAudio 合成，无音频文件</small></div><button id="btn-sound" class="toggle ${d.settings.sound ? 'on' : ''}">${d.settings.sound ? '开' : '关'}</button></div>
         <div class="setting-row"><div>震屏<small>爆炸时的相机反馈</small></div><button id="btn-shake" class="toggle ${d.settings.shake ? 'on' : ''}">${d.settings.shake ? '开' : '关'}</button></div>
         <div class="setting-row"><div>画质<small>低画质减少粒子与烟尘</small></div><button id="btn-quality" class="toggle ${d.settings.quality === 'hi' ? 'on' : ''}">${d.settings.quality === 'hi' ? '高' : '低'}</button></div>
