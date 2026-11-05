@@ -1,0 +1,144 @@
+{
+  "ok": true,
+  "url": "http://127.0.0.1:4173/?renderer=canvas",
+  "exec": "/root/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux-arm64/chrome-headless-shell",
+  "at": "2026-11-05T13:05:59.055Z",
+  "viewports": [
+    {
+      "viewport": "812x375",
+      "shots": [
+        "812x375-menu.png",
+        "812x375-training.png",
+        "812x375-settings.png",
+        "812x375-battle.png",
+        "812x375-aiming.png"
+      ],
+      "errors": [],
+      "states": {
+        "overflow": {
+          "docScroll": 812,
+          "docClient": 812,
+          "bodyScroll": 812,
+          "bodyClient": 812,
+          "canvas": {
+            "w": 812,
+            "h": 375
+          }
+        },
+        "before": {
+          "phase": "aim",
+          "turnIdx": 0
+        },
+        "selected": "p1",
+        "projectile": {
+          "vx": 647,
+          "vy": -329
+        },
+        "after": {
+          "phase": "aim",
+          "turnIdx": 1,
+          "shots": {
+            "p": 1,
+            "a": 0
+          }
+        }
+      }
+    },
+    {
+      "viewport": "740x360",
+      "shots": [
+        "740x360-menu.png",
+        "740x360-training.png",
+        "740x360-settings.png",
+        "740x360-battle.png",
+        "740x360-aiming.png",
+        "740x360-flight.png",
+        "740x360-after-shot.png",
+        "740x360-turn2.png",
+        "740x360-result.png",
+        "740x360-resume.png"
+      ],
+      "errors": [],
+      "states": {
+        "overflow": {
+          "docScroll": 740,
+          "docClient": 740,
+          "bodyScroll": 740,
+          "bodyClient": 740,
+          "canvas": {
+            "w": 740,
+            "h": 360
+          }
+        },
+        "before": {
+          "phase": "aim",
+          "turnIdx": 0
+        },
+        "selected": "p1",
+        "projectile": {
+          "vx": 619,
+          "vy": -288
+        },
+        "after": {
+          "phase": "flight",
+          "turnIdx": 1,
+          "shots": {
+            "p": 1,
+            "a": 1
+          }
+        },
+        "result": {
+          "title": "全歼成功",
+          "coins": 86
+        },
+        "resume": true,
+        "resumed": {
+          "phase": "aim",
+          "turnIdx": 0
+        }
+      }
+    },
+    {
+      "viewport": "1280x720",
+      "shots": [
+        "1280x720-menu.png",
+        "1280x720-training.png",
+        "1280x720-settings.png",
+        "1280x720-battle.png",
+        "1280x720-aiming.png"
+      ],
+      "errors": [],
+      "states": {
+        "overflow": {
+          "docScroll": 1280,
+          "docClient": 1280,
+          "bodyScroll": 1280,
+          "bodyClient": 1280,
+          "canvas": {
+            "w": 1280,
+            "h": 720
+          }
+        },
+        "before": {
+          "phase": "aim",
+          "turnIdx": 0
+        },
+        "selected": "p1",
+        "projectile": {
+          "vx": 674,
+          "vy": -274
+        },
+        "after": {
+          "phase": "aim",
+          "turnIdx": 1,
+          "shots": {
+            "p": 1,
+            "a": 0
+          }
+        }
+      }
+    }
+  ],
+  "overflow": [],
+  "errors": []
+}

@@ -1,0 +1,80 @@
+<div id="hud-root" class="hud-root">
+  <!-- 战斗 HUD -->
+  <section id="layer-battle" class="layer battle" hidden>
+    <div class="core-panel core-p">
+      <div class="core-head"><span>我方小队</span><b id="core-hp-p">0</b></div>
+      <div class="core-bar"><i id="core-fill-p"></i></div>
+    </div>
+    <div class="center-panel">
+      <div class="round-line"><span id="round-label">回合 1/14</span><em id="turn-label">你的回合</em></div>
+      <div class="map-line" id="map-label">黄昏高地</div>
+      <div class="wind-line">
+        <span class="wind-arrow-wrap"><span id="wind-arrow">➜</span></span>
+        <span id="wind-val">0.0</span>
+        <span class="wind-cap">风</span>
+      </div>
+    </div>
+    <div class="core-panel core-a">
+      <div class="core-head"><span>敌方小队</span><b id="core-hp-a">0</b></div>
+      <div class="core-bar"><i id="core-fill-a"></i></div>
+    </div>
+    <div class="hero-bar" id="hero-chips"></div>
+    <div class="battle-actions">
+      <button id="btn-skip" class="btn ghost" type="button">跳过</button>
+      <button id="btn-leave" class="btn ghost" type="button">菜单</button>
+    </div>
+    <div class="hint" id="battle-hint">按住向后拉弓 · 松手发射</div>
+  </section>
+
+  <!-- 主菜单 / 营地 -->
+  <section id="layer-menu" class="layer menu" hidden>
+    <div class="menu-bg-deco"></div>
+    <header class="menu-head">
+      <div class="brand">
+        <h1>爆裂攻城</h1>
+        <p>BURST GUARD · 算风 · 选点 · 拆迁</p>
+      </div>
+      <div class="res-group">
+        <div class="res"><span class="res-ico coin">◉</span><b id="res-coins">0</b><i>金币</i></div>
+        <div class="res"><span class="res-ico shard">◆</span><b id="res-shards">0</b><i>碎片</i></div>
+      </div>
+    </header>
+    <nav class="tabs">
+      <button data-tab="heroes" class="on" type="button">英雄</button>
+      <button data-tab="training" type="button">训练</button>
+      <button data-tab="settings" type="button">设置</button>
+    </nav>
+    <div class="tab-body">
+      <div id="tab-heroes" class="tab-panel"></div>
+      <div id="tab-training" class="tab-panel" hidden></div>
+      <div id="tab-settings" class="tab-panel" hidden></div>
+    </div>
+    <footer class="menu-foot">
+      <div class="diff-group" id="diff-group">
+        <span class="diff-cap">难度</span>
+        <button data-diff="easy" type="button">简单</button>
+        <button data-diff="normal" class="on" type="button">普通</button>
+        <button data-diff="hard" type="button">困难</button>
+      </div>
+      <div class="foot-actions">
+        <button id="btn-resume" class="btn" type="button" hidden>继续战斗</button>
+        <button id="btn-start" class="btn primary" type="button">开始攻城</button>
+      </div>
+    </footer>
+  </section>
+
+  <!-- 结算 -->
+  <section id="layer-result" class="layer result" hidden>
+    <div class="result-card">
+      <div id="result-title" class="result-title">胜利</div>
+      <div id="result-sub" class="result-sub"></div>
+      <ul id="reward-lines" class="reward-lines"></ul>
+      <div class="result-actions">
+        <button id="btn-back-menu" class="btn" type="button">返回营地</button>
+        <button id="btn-next" class="btn primary" type="button">再战一场</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" hidden></div>
+</div>

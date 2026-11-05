@@ -1,0 +1,29 @@
+{
+  "hardVsEasy": {
+    "pDiff": "hard",
+    "aDiff": "easy",
+    "games": 200,
+    "pWins": 200,
+    "aWins": 0,
+    "unfinished": 0,
+    "errors": 0,
+    "avgRounds": 11.82,
+    "avgShots": 21.62,
+    "ms": 40419,
+    "pWinRate": 1
+  },
+  "easyVsHard": {
+    "pDiff": "easy",
+    "aDiff": "hard",
+    "games": 200,
+    "pWins": 0,
+    "aWins": 200,
+    "unfinished": 0,
+    "errors": 0,
+    "avgRounds": 12.255,
+    "avgShots": 21.57,
+    "ms": 58575,
+    "pWinRate": 0
+  },
+  "at": "2026-11-05T11:59:11.908Z"
+}
